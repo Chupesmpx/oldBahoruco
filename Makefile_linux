@@ -1,0 +1,113 @@
+#make gasMain
+
+DIRO=../gasMain/obj/
+DIRA=../gasMain/App/
+#DIROC=../Comun/obj/
+
+DBG=-ggdb -w
+#DBG=-w
+
+#LIBX=`pkg-config --cflags gtk+-2.0	webkit-1.0`
+LIBX=`pkg-config --cflags gtk+-2.0`
+#LIBX=
+
+OBJ=	$(DIRO)main.o			$(DIRO)Ventana.o		$(DIRO)MenuMain.o		\
+		$(DIRO)Statusbar.o		$(DIRO)Toolbar.o		$(DIRO)DlgFecha.o		\
+		$(DIRO)myfecha.o		$(DIRO)MyFijo.o			$(DIRO)myworklv.o		\
+		$(DIRO)MyListview.o		$(DIRO)MyData.o			$(DIRO)DlgUpdate.o		\
+		$(DIRO)CargarDet.o		$(DIRO)DlgBonogas.o		$(DIRO)FileBonoGas.o	\
+		$(DIRO)MySave.o			$(DIRO)DlgAcerca.o		$(DIRO)DlgUpdate2.o		\
+		$(DIRO)MyPrintSeting.o	$(DIRO)MyPrintTicket.o	$(DIRO)MyPrintResum.o	\
+		$(DIRO)MyPrintFact.o	$(DIRO)MyPrintGls.o		$(DIRO)DlgCliente.o		\
+		$(DIRO)DlgResumen.o
+	
+OBJC=
+PROG=$(DIRA)gasMain
+
+#-mwindows
+all:	$(OBJ)
+	g++	-o	$(PROG)	$(OBJ)	$(OBJC)	\
+			$(DBG)	`pkg-config	--libs gtk+-2.0	gmodule-2.0`
+#			$(DBG)	`pkg-config	--libs gtk+-2.0	webkit-1.0	gmodule-2.0`
+
+
+$(DIRO)main.o:	main.c	main.h
+	g++	$(DBG)	-c	main.c	-o	$(DIRO)main.o				$(LIBX)
+	
+$(DIRO)Ventana.o:	Ventana.cpp	Ventana.h
+	g++	$(DBG)	-c	Ventana.cpp	-o	$(DIRO)Ventana.o		$(LIBX)
+
+$(DIRO)MenuMain.o:	MenuMain.cpp	MenuMain.h
+	g++	$(DBG)	-c	MenuMain.cpp	-o	$(DIRO)MenuMain.o	$(LIBX)
+
+$(DIRO)Statusbar.o:	Statusbar.cpp	Statusbar.h
+	g++	$(DBG)	-c	Statusbar.cpp	-o	$(DIRO)Statusbar.o	$(LIBX)
+
+$(DIRO)Toolbar.o:	Toolbar.cpp	Toolbar.h
+	g++	$(DBG)	-c	Toolbar.cpp	-o	$(DIRO)Toolbar.o		$(LIBX)
+
+$(DIRO)DlgFecha.o:	DlgFecha.cpp	DlgFecha.h
+	g++	$(DBG)	-c	DlgFecha.cpp	-o	$(DIRO)DlgFecha.o	$(LIBX)
+
+$(DIRO)myfecha.o:	myfecha.cpp	myfecha.h
+	g++	$(DBG)	-c	myfecha.cpp	-o	$(DIRO)myfecha.o		$(LIBX)
+
+$(DIRO)MyFijo.o:	MyFijo.cpp	MyFijo.h
+	g++	$(DBG)	-c	MyFijo.cpp	-o	$(DIRO)MyFijo.o			$(LIBX)
+
+$(DIRO)myworklv.o:	myworklv.cpp	myworklv.h
+	g++	$(DBG)	-c	myworklv.cpp	-o	$(DIRO)myworklv.o	$(LIBX)
+
+$(DIRO)MyListview.o:	MyListview.cpp	MyListview.h
+	g++	$(DBG)	-c	MyListview.cpp	-o	$(DIRO)MyListview.o	$(LIBX)
+
+$(DIRO)MyData.o:	MyData.cpp	MyData.h
+	g++	$(DBG)	-c	MyData.cpp	-o	$(DIRO)MyData.o
+
+$(DIRO)DlgUpdate.o:	DlgUpdate.cpp	DlgUpdate.h
+	g++	$(DBG)	-c	DlgUpdate.cpp	-o	$(DIRO)DlgUpdate.o	$(LIBX)
+
+$(DIRO)CargarDet.o:	CargarDet.cpp	CargarDet.h
+	g++	$(DBG)	-c	CargarDet.cpp	-o	$(DIRO)CargarDet.o	$(LIBX)
+
+$(DIRO)DlgBonogas.o:	DlgBonogas.cpp	DlgBonogas.h
+	g++	$(DBG)	-c	DlgBonogas.cpp	-o	$(DIRO)DlgBonogas.o	$(LIBX)
+
+$(DIRO)FileBonoGas.o:	FileBonoGas.cpp	FileBonoGas.h
+	g++	$(DBG)	-c	FileBonoGas.cpp	-o	$(DIRO)FileBonoGas.o	$(LIBX)
+
+$(DIRO)MySave.o:	MySave.cpp	MySave.h
+	g++	$(DBG)	-c	MySave.cpp	-o	$(DIRO)MySave.o			$(LIBX)
+
+$(DIRO)DlgAcerca.o:	DlgAcerca.cpp	DlgAcerca.h
+	g++	$(DBG)	-c	DlgAcerca.cpp	-o	$(DIRO)DlgAcerca.o			$(LIBX)
+
+$(DIRO)DlgUpdate2.o:	DlgUpdate2.cpp	DlgUpdate2.h
+	g++	$(DBG)	-c	DlgUpdate2.cpp	-o	$(DIRO)DlgUpdate2.o		$(LIBX)
+
+$(DIRO)MyPrintSeting.o:	MyPrintSeting.cpp	MyPrintSeting.h
+	g++	$(DBG)	-c	MyPrintSeting.cpp	-o	$(DIRO)MyPrintSeting.o		$(LIBX)
+
+$(DIRO)MyPrintTicket.o:	MyPrintTicket.cpp	MyPrintTicket.h
+	g++	$(DBG)	-c	MyPrintTicket.cpp	-o	$(DIRO)MyPrintTicket.o		$(LIBX)
+
+$(DIRO)MyPrintResum.o:	MyPrintResum.cpp	MyPrintResum.h
+	g++	$(DBG)	-c	MyPrintResum.cpp	-o	$(DIRO)MyPrintResum.o		$(LIBX)
+
+$(DIRO)MyPrintFact.o:	MyPrintFact.cpp	MyPrintFact.h
+	g++	$(DBG)	-c	MyPrintFact.cpp	-o	$(DIRO)MyPrintFact.o		$(LIBX)
+
+$(DIRO)MyPrintGls.o:	MyPrintGls.cpp	MyPrintGls.h
+	g++	$(DBG)	-c	MyPrintGls.cpp	-o	$(DIRO)MyPrintGls.o		$(LIBX)
+
+$(DIRO)DlgCliente.o:	DlgCliente.cpp	DlgCliente.h
+	g++	$(DBG)	-c	DlgCliente.cpp	-o	$(DIRO)DlgCliente.o		$(LIBX)
+
+$(DIRO)DlgResumen.o:	DlgResumen.cpp	DlgResumen.h
+	g++	$(DBG)	-c	DlgResumen.cpp	-o	$(DIRO)DlgResumen.o		$(LIBX)
+	
+clean:
+	rm -f $(OBJ)
+	rm -f $(PROG)
+
+
